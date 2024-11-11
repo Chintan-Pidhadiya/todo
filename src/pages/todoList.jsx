@@ -192,7 +192,7 @@ const TodoList = () => {
 
       {open && (
         <Modal onClose={() => setOpen(false)}>
-          <div className="flex justify-between items-center mb-4">
+          <div className="flex justify-between items-center mb-3">
             <h2 className="text-lg font-semibold ">Create New Task</h2>
             <div>
               <IoMdClose
