@@ -25,7 +25,6 @@ const TodoList = () => {
   const [open, setOpen] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [selectedTaskId, setSelectedTaskId] = useState(null);
-  // const [columns, setColumns] = useState(["todo", "inprogress", "completed"]);
   const [editTask, setEditTask] = useState(null);
   const [newColumnName, setNewColumnName] = useState("");
   const dispatch = useDispatch();
@@ -43,7 +42,6 @@ const TodoList = () => {
         status: "",
       };
 
-  // console.log("🚀 ~ TodoList ~ initialValues:", initialValues);
   const validationSchema = Yup.object({
     taskName: Yup.string()
       .required("Task name is required")

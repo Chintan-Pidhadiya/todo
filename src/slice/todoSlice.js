@@ -14,7 +14,6 @@ const todoslice = createSlice({
   reducers: {
     addtask: (state, action) => {
       const { taskName, taskDescription, startDate, endDate } = action.payload;
-      // console.log("🚀 ~ payload:", action.payload);
       state.todo.push({
         id: Math.random().toString(26),
         taskName,
@@ -23,13 +22,10 @@ const todoslice = createSlice({
         endDate: new Date(endDate).toISOString(),
         status: "todo",
       });
-      // console.log(action);
     },
     updateTask: (state, action) => {
       const updatedTask = action.payload;
-      // console.log("🚀 ~ updatedTask:", updatedTask);
       const column = updatedTask.status;
-      // console.log("🚀 ~ column:", column);
 
       // Find the task by ID within the specified column
       const taskIndex = state[column].findIndex(
@@ -47,7 +43,6 @@ const todoslice = createSlice({
     updateTaskOrder: (state, action) => {
       const { sourceColumn, destinationColumn, sourceIndex, destinationIndex } =
         action.payload;
-      // console.log("🚀 ~ payload:", action.payload);
 
       const [draggedTask] = state[sourceColumn].splice(sourceIndex, 1);
       draggedTask.status = destinationColumn; // Remove the task from source column
@@ -56,7 +51,6 @@ const todoslice = createSlice({
         0,
         draggedTask
       );
-      // console.log("🚀 ~ des:", des);
       // Add the task to destination column
     },
     deleteTask: (state, action) => {
@@ -69,8 +63,6 @@ const todoslice = createSlice({
       }
     },
     addColumn: (state, action) => {
-      const columnName = action.payload;
-      console.log("��� ~ columnName:", action.payload);
       if (!state.columns.includes(columnName)) {
         state.columns.push(columnName); // Add the column if it doesn't already exist
         state[columnName] = [];

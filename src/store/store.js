@@ -1,8 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todoslice from "../slice/todoSlice";
+import todoslice from "../slice/todoSlice.js"
+// import { persistReducer, persistStore } from "redux-persist";
+// import storage from "redux-persist/lib/storage";
+// const persistConfig = {
+//   key: "root",
+//   storage,
+//   whitelist: ["todo"]
+// };
 
-// const storage = require("redux-persist/lib/storage");
-// const { persistReducer, persistStore } = require("redux-persist");
+// const persistedReducer = persistReducer(persistConfig, todoslice);
 
 const store = configureStore({
   reducer: {
@@ -10,5 +16,6 @@ const store = configureStore({
   },
 });
 
+// export const persistor = persistStore(store);
 
 export default store;
